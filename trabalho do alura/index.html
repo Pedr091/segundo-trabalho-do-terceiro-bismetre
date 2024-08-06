@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <title>Clássico do Vale</title>
+    <style>
+        .passo { display: none; }
+        .passo.ativo { display: block; }
+    </style>
+</head>
+<body>
+    <div class="passo ativo" id="passo-0">
+        <h1>Clássico do Vale</h1>
+        <img src="cenario-passo11-são-josé-burro.png" alt="Imagem do clássico">
+        <p>Um dia desses, você decide assistir a uma final de Copa Paulista, e para sua surpresa, o jogo é o maior clássico do Vale do Paraíba: São José contra Taubaté. Com o coração cheio de expectativa, qual time você escolhe?</p>
+        <button class="btn-proximo" data-proximo="1">São José</button>
+        <button class="btn-proximo" data-proximo="2">Taubaté</button>
+    </div>
+    <div class="passo" id="passo-1">
+        <p>Em São José dos Campos, você visita a cidade e encontra o Estádio Martins Pereira. Na mesma rua, há um bar da Mancha Azul com pagode. Qual será a sua escolha?</p>
+        <button class="btn-proximo" data-proximo="3">Estádio Martins Pereira</button>
+        <button class="btn-proximo" data-proximo="4">Bar da Mancha Azul</button>
+    </div>
+    <div class="passo" id="passo-2">
+        <p>Você pega um ônibus até Taubaté e visita a cidade. Enquanto explora, encontra o Joaquinzão e, na mesma rua, um bar com pagode. Qual será a sua escolha?</p>
+        <button class="btn-proximo" data-proximo="5">Joaquinzão</button>
+        <button class="btn-proximo" data-proximo="6">Bar com Pagode</button>
+    </div>
+    <div class="passo" id="passo-3">
+        <p>Você vai ao clássico do interior entre São José e Taubaté. Com a camisa da Mancha Azul, seu time ganha o clássico e sua família decide ir para Aparecida do Norte.</p>
+        <button class="btn-proximo" data-proximo="7">Ir para Aparecida</button>
+    </div>
+    <div class="passo" id="passo-4">
+        <p>Você atravessa a rua, entra no bar e pede uma cerveja. Ao dar o primeiro gole, percebe que é a melhor cerveja que já tomou. A roda de pagode está animada e a atmosfera é contagiante, deixando você feliz com a combinação de boa música e excelente cerveja.</p>
+    </div>
+    <div class="passo" id="passo-5">
+        <p>Você decide ir ao clássico do interior entre Taubaté e São José, vestindo a camisa do Burro. No entanto, ao entrar, você se distrai e vai para a área da torcida visitante. Integrantes da Mancha Azul reconhecem sua camisa e, de forma agressiva, começam a atacá-lo com pedaços de madeira. A violência é intensa e, infelizmente, você acaba morrendo devido aos ferimentos.</p>
+    </div>
+    <div class="passo" id="passo-6">
+        <p>Você atravessa a rua, entra no bar e pede uma cerveja. A cerveja chega quente e o pagode é descoordenado, com músicos e público fora de ritmo. Desapontado, você decide mudar de rumo e torcer para o São José, na esperança de encontrar algo que traga alegria ao seu dia.</p>
+        <button class="btn-proximo" data-proximo="8">Ir para São José</button>
+    </div>
+    <div class="passo" id="passo-7">
+        <p>Você decide ir para o santuário em Aparecida do Norte.</p>
+        <button class="btn-proximo" data-proximo="9">Rezar o terço</button>
+        <button class="btn-proximo" data-proximo="10">Assistir à missa</button>
+    </div>
+    <div class="passo" id="passo-8">
+        <p>Você decide voltar para São José.</p>
+        <button class="btn-proximo" data-proximo="1">Voltar para São José dos Campos</button>
+    </div>
+    <div class="passo" id="passo-9">
+        <p>Você decide rezar o terço.</p>
+        <button class="btn-proximo" data-proximo="11">Rezar o terço</button>
+    </div>
+    <div class="passo" id="passo-10">
+        <p>Você decide assistir à missa.</p>
+        <button class="btn-proximo" data-proximo="11">Voltar e tentar o outro caminho</button>
+    </div>
+    <div class="passo" id="passo-11">
+        <img src="img/cenario-passo11-UNICO-SALVADOR.png" alt="Imagem do santuário">
+        <p>Você se dirige ao santuário, um lugar sagrado e de profunda conexão espiritual. Lá, você encontra verdadeira felicidade e paz interior ao se encontrar com a presença de nosso Senhor Jesus Cristo. O santuário se torna um espaço de renovação e profunda alegria, onde o amor e a graça de Jesus Cristo transformam sua vida e enchem seu coração de uma felicidade duradoura. O ambiente proporciona um momento de introspecção e conexão mais profunda com o divino, permitindo que você se entregue completamente à experiência de paz e realização que a presença de Jesus oferece.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const passos = document.querySelectorAll('.passo');
+            const botoes = document.querySelectorAll('.btn-proximo');
+
+            function mostrarPasso(id) {
+                passos.forEach(passo => {
+                    passo.classList.remove('ativo');
+                });
+                document.getElementById(`passo-${id}`).classList.add('ativo');
+            }
+
+            botoes.forEach(botao => {
+                botao.addEventListener('click', () => {
+                    const proximoPasso = botao.getAttribute('data-proximo');
+                    mostrarPasso(proximoPasso);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
